@@ -40,7 +40,7 @@ class CurrenciesUpdateCommand extends Command
         try {
             foreach ($cbrParser->getCurrencies() as $cbrCurrency) {
 
-                $currency = Currency::where('name', $cbrCurrency->name)->first();
+                $currency = Currency::where('name', $cbrCurrency->charCode)->first();
 
                 if (!$currency) {
                     $currency = new Currency();
@@ -49,7 +49,7 @@ class CurrenciesUpdateCommand extends Command
                     $new = false;
                 }
 
-                $currency->name = $cbrCurrency->name;
+                $currency->name = $cbrCurrency->charCode;
                 $currency->rate = $cbrCurrency->value;
 
                 if ($currency->save()) {
