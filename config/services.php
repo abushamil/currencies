@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'cbr_parser' => [
+        'feed_url' => env('CBR_PARSER_FEED_URL', 'http://www.cbr.ru/scripts/XML_daily.asp'),
+    ],
+
 ];
